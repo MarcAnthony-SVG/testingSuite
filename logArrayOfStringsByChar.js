@@ -10,7 +10,7 @@ function logArrayOfStringsByChar (arr) {
     }
 }
 
-logArrayOfStringsByChar(['yes', 'no', 'hello'])
+//logArrayOfStringsByChar(['yes', 'no', 'hello'])
 
 describe('logArrayOfStingsByChar', function() {
 
