@@ -1,3 +1,5 @@
+//7.3 while LOOP EXERCISES
+
 var expect = require('chai').expect;
 require('mocha-sinon');
 // Write a function that takes one parameter, a number. The function logs the given number and the next 5 numbers to the console. The function does not return anything. Use a

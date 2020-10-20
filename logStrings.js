@@ -1,20 +1,23 @@
+//7.3 while LOOP EXERCISES
+
 var expect = require('chai').expect;
 
-function nextFiveMultiples(num){
-    var orgNum = num;
-    var counter = num * 6;
-    while(num <= counter){
-        console.log(num);
-        num += orgNum
+function logStrings(array) {
+    var x = 0;
+    while(x < array.length){
+        if(typeof array[x] === "string"){
+            console.log(array[x]);
+        }
+        x++;
     }
 }
 
-// nextFiveMultiples(3);
+// logStrings(['hello world',1,true, 'yes', false,'empty']);
 
 describe('nextFive', function() {
 
     try {
-      nextFiveMultiples(2);
+      logStrings(['no',1, false, true, 4, 9, 'yes', 'hello']);
     }
     catch (error) {
       console.log(error);
@@ -27,9 +30,9 @@ describe('nextFive', function() {
       console.log = function(message) {
         capturedMessage += message.toString() + ',';
       }
-      nextFiveMultiples(2);
+      logStrings(['no',1, false, true, 4, 9, 'yes', 'hello']);
       console.log = originalLogger;
-      expect(capturedMessage).to.deep.eq('2,4,6,8,10,12,')
+      expect(capturedMessage).to.deep.eq('no,yes,hello,')
     })
 
     it("should log values to the console (2)", function() {
@@ -38,12 +41,12 @@ describe('nextFive', function() {
       console.log = function(message) {
         capturedMessage += message.toString() + ',';
       }
-      nextFiveMultiples(7);
+      logStrings([false, 4, 'demon', 'halo', 3, 8, 'covenant']);
       console.log = originalLogger;
-      expect(capturedMessage).to.deep.eq('7,14,21,28,35,42,')
+      expect(capturedMessage).to.deep.eq('demon,halo,covenant,')
     })
     it("should use a while loop", function() {
-      var body = nextFiveMultiples.toString();
+      var body = logStrings.toString();
       expect(/while/.test(body)).to.deep.eq(true);
     })
 })
